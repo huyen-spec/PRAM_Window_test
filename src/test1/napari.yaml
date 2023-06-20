@@ -1,0 +1,47 @@
+name: PRAm-visualization
+display_name: Visualize PRAM data
+contributions:
+  commands:
+    - id:  PRAm-visualization.get_img_reader
+      python_name: test1._reader:napari_get_reader_dir
+      title: Open PRAM annotation in json files
+    - id: PRAm-visualization.get_reader
+      python_name: test1._reader:napari_get_reader
+      title: Open data with Visualize PRAM data
+    - id: PRAm-visualization.write_multiple
+      python_name: test1._writer:write_multiple
+      title: Save multi-layer data with Visualize PRAM data
+    - id: PRAm-visualization.write_single_image
+      python_name: test1._writer:write_single_image
+      title: Save image data with Visualize PRAM data
+    - id: PRAm-visualization.make_qwidget
+      python_name: test1._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: PRAm-visualization.make_magic_widget
+      python_name: test1._widget:example_magic_widget
+      title: Make example magic widget
+    - id: PRAm-visualization.make_func_widget
+      python_name: test1._widget:example_function_widget
+      title: Make example function widget
+  readers:
+    - command: PRAm-visualization.get_img_reader
+      accepts_directories: true
+      filename_patterns: []
+    - command: PRAm-visualization.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.json']
+  writers:
+    - command: PRAm-visualization.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: PRAm-visualization.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']
+  widgets:
+    - command: PRAm-visualization.make_qwidget
+      display_name: Example QWidget
+    - command: PRAm-visualization.make_magic_widget
+      display_name: Example Magic Widget
+    - command: PRAm-visualization.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget
